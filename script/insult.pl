@@ -17,8 +17,8 @@ use open qw[:std :encoding(UTF-8)];
 my $raw = 0;
 my $flavor;
 
-sub _echo ($slip) {    # JSON::Tiny is loaded in Acme::Insult::* anyway
-    $raw ? JSON::Tiny::encode_json( {%$slip} ) : $slip;
+sub _echo ($insult) {
+    $raw && eval 'require JSON::Tiny' ? JSON::Tiny::encode_json( {%$insult} ) : $insult;
 }
 GetOptions(
     \my %h, 'language=s',

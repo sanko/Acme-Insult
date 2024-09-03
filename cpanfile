@@ -6,10 +6,12 @@ recommends 'Acme::Insult::Pirate';
 feature evil => 'Acme::Insult::Evil support' => sub {
     requires 'Acme::Insult::Evil';
 };
-
-#feature pirate => 'Acme::Insult::Pirate support' => sub {
-#    requires 'Acme::Insult::Pirate';
-#};
+feature pirate => 'Acme::Insult::Pirate support' => sub {
+    requires 'Acme::Insult::Pirate';
+};
+feature json => '-json support in insult.pl' => sub {
+    requires 'JSON::Tiny' => '0.58';    # API returns insults as plain strings (for now)
+};
 on 'test' => sub {
     requires 'Test2::V0' => 0.000159;
     requires 'Capture::Tiny';

@@ -33,6 +33,26 @@
                }
             }
          }
+      },
+      "json" : {
+         "description" : "-json support in insult.pl",
+         "prereqs" : {
+            "runtime" : {
+               "requires" : {
+                  "JSON::Tiny" : "0.58"
+               }
+            }
+         }
+      },
+      "pirate" : {
+         "description" : "Acme::Insult::Pirate support",
+         "prereqs" : {
+            "runtime" : {
+               "requires" : {
+                  "Acme::Insult::Pirate" : "0"
+               }
+            }
+         }
       }
    },
    "prereqs" : {

@@ -4,7 +4,12 @@ package Acme::Insult 1.0 {
     use Module::Load;
     our %EXPORT_TAGS = ( all => [ our @EXPORT_OK = qw[insult flavors] ] );
     #
-    my %flavor = ( map { my $pkg = 'Acme::Insult::' . $_; ( eval 'require ' . $pkg ? ( lc($_) => $pkg ) : () ), } qw[Glax Evil Pirate] );
+    my %flavor = (
+        map {
+            my $pkg = 'Acme::Insult::' . $_;
+            ( eval 'require ' . $pkg ? ( lc($_) => $pkg ) : () ),
+        } qw[Glax Evil Pirate]
+    );
 
     sub insult ( $flavor //= ( keys %flavor )[ rand keys %flavor ] ) {
         $flavor{$flavor} // return ();
